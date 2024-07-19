@@ -1,0 +1,109 @@
+{
+  "$schema": "https://raw.githubusercontent.com/AwesomeCatalogue/AwesomeCatalogue.github.io/main/src/json/schema.json",
+  "title": "Software Categories",
+  "description": "A collection of software categories",
+  "type": "object",
+  "required": ["categories"],
+  "properties": {
+    "categories": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z ]+$": {
+          "$ref": "#/properties/softwareCategory"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties_softwareCategory": {
+    "type": "object",
+    "description": "A software category",
+    "required": ["wiki", "description", "softwares"],
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "A brief description of the category"
+      },
+      "softwares": {
+        "type": "array",
+        "description": "A list of software in this category",
+        "items": {
+          "$ref": "#/properties/software"
+        }
+      },
+      "wiki": {
+        "type": "string",
+        "description": "A link to the category's wiki page"
+      }
+    }
+  },
+  "properties_software": {
+    "type": "object",
+    "description": "A software",
+    "required": [
+      "id",
+      "name",
+      "description",
+      "url",
+      "source_code",
+      "license",
+      "tags"
+    ],
+    "properties": {
+      "demo": {
+        "type": "string",
+        "format": "uri",
+        "description": "A link to the software's demo"
+      },
+      "description": {
+        "type": "string",
+        "description": "A brief description of the software"
+      },
+      "id": {
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "description": "The software's ID"
+      },
+      "images": {
+        "type": "array",
+        "description": "A list of images related to the software",
+        "items": {
+          "type": "string"
+        }
+      },
+      "license": {
+        "type": "string",
+        "description": "The software's license"
+      },
+      "name": {
+        "type": "string",
+        "description": "The software's name"
+      },
+      "source_code": {
+        "type": "string",
+        "format": "uri",
+        "description": "A link to the software's source code"
+      },
+      "tags": {
+        "type": "array",
+        "description": "A list of tags related to the software",
+        "items": {
+          "type": "string"
+        }
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "description": "A link to the software's website"
+      },
+      "price": {
+        "type": "string",
+        "description": "The software's price"
+      },
+      "rating": {
+        "type": "string",
+        "description": "The software's rating"
+      }
+    }
+  }
+}
