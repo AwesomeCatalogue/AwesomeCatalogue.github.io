@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/AwesomeCatalogue/AwesomeCatalogue.github.io/main/src/json/schema.json",
-  "title": "Software Categories",
-  "description": "A collection of software categories",
+  "title": "Awesome Catalogue JSON Schema",
+  "description": "A JSON Schema for the Awesome Catalogue",
   "type": "object",
   "required": ["categories"],
   "properties": {
